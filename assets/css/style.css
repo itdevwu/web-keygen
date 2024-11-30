@@ -1,0 +1,163 @@
+/* Copyright 2024 itdevwu
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 640px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px 5px 0 0;
+    background-color: #e0e0e0;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.tab.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tab-content {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0 0 8px 8px;
+    text-align: left;
+}
+
+.settings,
+.options {
+    margin-bottom: 20px;
+}
+
+input[type="number"],
+select {
+    width: auto;
+    margin-left: 10px;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.output {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 40px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 500px) {
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        margin: 5px 0;
+        width: 100%;
+    }
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+}
+
+.footer span {
+    display: block;
+    margin: 5px 0;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

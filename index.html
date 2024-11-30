@@ -1,0 +1,106 @@
+<!-- Copyright 2024 itdevwu
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto-safe Generator</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Crypto-safe Generator</h1>
+        <div class="tabs">
+            <button class="tab" id="password-tab" data-tab="password">Password Generator</button>
+            <button class="tab" id="key-tab" data-tab="key">Key Generator</button>
+        </div>
+        <div class="tab-content" id="password-content">
+            <div class="settings">
+                <label for="length">Length (4-256):</label>
+                <input type="number" id="length" min="4" max="256" value="16">
+                <input type="range" id="length-range" min="4" max="256" value="16">
+            </div>
+            <div class="options">
+                <label><input type="checkbox" id="uppercase"> Include uppercase letters</label>
+                <label><input type="checkbox" id="lowercase"> Include lowercase letters</label>
+                <label><input type="checkbox" id="numbers"> Include numbers</label>
+                <label><input type="checkbox" id="symbols"> Include symbols</label>
+                <label><input type="checkbox" id="avoidAmbiguous"> Avoid ambiguous characters</label>
+            </div>
+            <div class="output">
+                <textarea id="password" readonly></textarea>
+                <div class="button-group">
+                    <button id="generate">Re-gen</button>
+                    <button id="copy">Copy</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content" id="key-content" style="display: none;">
+            <div class="settings">
+                <div id="bip39-settings" style="display: block;">
+                    <label for="bip39-words">Number of words (12, 15, 18, 21, 24):</label>
+                    <select id="bip39-words">
+                        <option value="12">12</option>
+                        <option value="15">15</option>
+                        <option value="18">18</option>
+                        <option value="21">21</option>
+                        <option value="24" selected>24</option>
+                    </select>
+                </div>
+                <div id="hex-settings" style="display: none;">
+                    <label for="hex-length">Length of bits (128, 192, 256):</label>
+                    <select id="hex-length">
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                        <option value="32">32</option>
+                        <option value="64">64</option>
+                        <option value="128" selected>128</option>
+                        <option value="192">192</option>
+                        <option value="256">256</option>
+                        <option value="512">512</option>
+                        <option value="1024">1024</option>
+                        <option value="2048">2048</option>
+                        <option value="4096">4096</option>
+                    </select>
+                </div>
+            </div>
+            <div class="options">
+                <label><input type="radio" name="key-type" id="bip39" value="bip39" checked> BIP-39</label>
+                <label><input type="radio" name="key-type" id="hex" value="hex"> HEX</label>
+            </div>
+            <div class="output">
+                <textarea id="key" readonly></textarea>
+                <div class="button-group">
+                    <button id="generate-key">Re-gen</button>
+                    <button id="copy-key">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- copyright and disclaimer -->
+        <div class="footer">
+            <span>© 2024 <a href="https://www.itdevwu.com" target="_blank">itdevwu</a>. All rights reserved.</span>
+            <span>Disclaimer: This tool is provided for educational purposes only. DO NOT use it for critical
+                systems.</span>
+        </div>
+    </div>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+
+</html>
