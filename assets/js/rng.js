@@ -13,11 +13,26 @@
 // limitations under the License.
 
 export function getRandomChar(chars) {
+    // validate chars
+    if (!chars || chars.length === 0) {
+        throw new Error('Input for getRandomChar must be a non-empty string');
+    }
+
     const crypto = window.crypto;
     const randomValues = new Uint8Array(1);
     crypto.getRandomValues(randomValues);
-    const randomIndex = randomValues[0] % chars.length;
-    return chars[randomIndex];
+
+    // fix modulo bias
+    const maxBias = 256 % chars.length;
+    const threshold = 256 - maxBias;
+    while (true) {
+        crypto.getRandomValues(randomValues);
+        const randomByte = randomValues[0];
+        if (randomByte < threshold) {
+            const randomIndex = randomByte % chars.length;
+            return chars[randomIndex];
+        }
+    }
 }
 
 export function getRandomSequence(length, chars) {
